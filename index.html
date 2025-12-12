@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broken Trust: When TATA CAPITAL Prioritizes Unit Economics Over Customer Dignity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004C97; /* TATA Blue */
+            --secondary-color: #0072CE; /* TATA Light Blue */
+            --accent-color: #FFC72C; /* TATA Gold */
+            --danger-color: #E63946; /* For warnings */
+            --light-color: #F8F9FA;
+            --dark-color: #1A2B3C;
+            --gray-color: #6C757D;
+            --success-color: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-image: linear-gradient(to bottom, rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%230072CE" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            opacity: 0.1;
+            font-size: 5rem;
+            color: var(--primary-color);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-color);
+            font-style: italic;
+            margin-top: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .emotional-quote {
+            background-color: rgba(0, 76, 151, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 25px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-color);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline-container {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 3px solid var(--light-color);
+            box-shadow: 0 0 0 3px var(--secondary-color);
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-event {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-detail {
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(0, 114, 206, 0.08);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 40px 0;
+            border: 2px solid rgba(0, 114, 206, 0.2);
+        }
+        
+        .warning-box {
+            background-color: rgba(230, 57, 70, 0.08);
+            border: 2px solid rgba(230, 57, 70, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+        
+        .warning-title {
+            display: flex;
+            align-items: center;
+            color: var(--danger-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .warning-title::before {
+            content: '⚠️';
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .pain-points {
+            background-color: rgba(255, 199, 44, 0.08);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .pain-point {
+            margin-bottom: 25px;
+            padding-left: 60px;
+            position: relative;
+        }
+        
+        .pain-point::before {
+            content: '💔';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--danger-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .email-thread {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .email-item {
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            margin-bottom: 25px;
+            background-color: rgba(0, 114, 206, 0.03);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .email-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .email-date {
+            color: var(--gray-color);
+            font-weight: 600;
+        }
+        
+        .email-content {
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .about-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .link-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-color);
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            border-top: 1px solid #ddd;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .hashtag {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .email-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .logo-overlay {
+                font-size: 3rem;
+                right: 5px;
+                top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-overlay">
+            <i class="fas fa-landmark"></i>
+        </div>
+        <h1>Broken Trust: When TATA CAPITAL Prioritizes Unit Economics Over Customer Dignity</h1>
+        <p class="subtitle">An Open Letter About Systemic Failure, Unethical Practices, and the Diminishing Value of the TATA Name</p>
+        <p><strong>Loan Reference:</strong> TCHHF0853000100215297 | <strong>Issue:</strong> Bank Account Change Request Ignored for 4+ Months</p>
+        <div class="hashtag">#TATACAPITALFail #TATATrustBroken #CustomerRights</div>
+    </header>
+
+    <div class="emotional-quote">
+        "I once believed the TATA name stood for trust and integrity. Today, I see it diminished by unethical employees, irresponsibility, and a system that treats customers as mere unit economics."
+    </div>
+
+    <section>
+        <h2>The Core Issue: TATA CAPITAL's Systemic Failure</h2>
+        
+        <div class="highlight-box">
+            <h3>TATA - Does the name still carry TRUST?</h3>
+            <p>For decades, the TATA name has been synonymous with trust, integrity, and ethical business practices in India. Ratan Tata's leadership inspired millions, including entrepreneurs like myself. But when TATA CAPITAL fails its customers through unethical practices, extortion in the name of unexplained charges, and zero accountability, that trust is irreparably damaged.</p>
+            
+            <p>If I could work for TATA in any capacity, I would have etched the name in my heart and been responsible toward customers. I'm no longer sure if TATA CAPITAL carries the same culture that Ratan Sir inscribed.</p>
+        </div>
+        
+        <div class="pain-points">
+            <h3>The Pain Points: How TATA CAPITAL Failed a Customer</h3>
+            
+            <div class="pain-point">
+                <h4>The Unresolved Technical Issue</h4>
+                <p>My mortgage loan auto EMI was enabled on CITIBANK. When CITIBANK exited India (a circumstance beyond my control), I've been unable to change my bank account to HDFC despite requesting this change since August 2024.</p>
+            </div>
+            
+            <div class="pain-point">
+                <h4>Financial Penalties for Their Failure</h4>
+                <p>Every month, I pay additional fees due to bounced payments—not because of insufficient funds, but because TATA CAPITAL's system cannot process the bank change. I maintain an 800+ CIBIL score and have submitted all required documents multiple times.</p>
+            </div>
+            
+            <div class="pain-point">
+                <h4>Complete Communication Breakdown</h4>
+                <p>The escalation matrix doesn't work. Multiple emails, reminders, and requests for explanations or timelines are met with SILENCE or circular responses that don't address the core issue.</p>
+            </div>
+            
+            <div class="pain-point">
+                <h4>Diminishing Brand Value</h4>
+                <p>Every time I see @tatacapital in an email, I watch the value of the TATA name diminish because of unethical employees, irresponsibility, and willful ignorance of customer needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>The Timeline: 4+ Months of Neglect and Incompetence</h2>
+        <p>This is not a simple oversight. It's a pattern of systemic failure documented through email correspondence over four months.</p>
+        
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <span class="timeline-date">August 11, 2024</span>
+                <div class="timeline-event">Formal Request Submitted</div>
+                <div class="timeline-detail">Initial email sent requesting bank account change from CITIBANK to HDFC. Provided all necessary details including new account information and address.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">August 12, 2024</span>
+                <div class="timeline-event">First Reminder Sent</div>
+                <div class="timeline-detail">No response received, so first reminder sent to the same contacts.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">August 13, 2024</span>
+                <div class="timeline-event">Documents Submitted & Acknowledged</div>
+                <div class="timeline-detail">Submitted ITR, bank statements, and cheques. Received acknowledgment from Nagaraju AR: "Documents received. Purpose – Swapping or NACH registration."</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">August 13 - December 6, 2024</span>
+                <div class="timeline-event">4 Months of Silence</div>
+                <div class="timeline-detail">No updates, no progress, no communication despite the issue directly causing financial penalties each month.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">December 6, 2024</span>
+                <div class="timeline-event">Escalation Attempt</div>
+                <div class="timeline-detail">Forwarded entire email chain to senior management, highlighting the 4-month delay and complete lack of resolution.</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">December 9, 2024</span>
+                <div class="timeline-event">Circular Responses Begin</div>
+                <div class="timeline-detail">After 4 months, Nagaraju AR responds asking for documents already submitted. When questioned about the delay, provides contradictory explanations about "insufficient balance" (despite consistent payment of all dues and penalties).</div>
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-date">December 9-11, 2024</span>
+                <div class="timeline-event">Request for Accountability Ignored</div>
+                <div class="timeline-detail">Multiple requests for written clarification, process timelines, and explanation of 4-month delay are completely ignored or met with repeated requests for already-submitted documents.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="email-thread">
+        <h2>Evidence: The Email Chain That Reveals Systemic Failure</h2>
+        
+        <div class="email-item">
+            <div class="email-header">
+                <span>From: Bharath Bholey</span>
+                <span class="email-date">August 11, 2024</span>
+            </div>
+            <div class="email-content">
+                <p>"I have been attempting to update these details online for the past 7–8 months without success... Your prompt assistance in resolving this matter will be highly appreciated."</p>
+            </div>
+        </div>
+        
+        <div class="email-item">
+            <div class="email-header">
+                <span>From: Nagaraju AR (TATA CAPITAL)</span>
+                <span class="email-date">August 13, 2024</span>
+            </div>
+            <div class="email-content">
+                <p>"Documents received (ITR, Bank statement and cheques). Purpose – Swapping or NACH registration."</p>
+            </div>
+        </div>
+        
+        <div class="email-item">
+            <div class="email-header">
+                <span>From: Bharath Bholey</span>
+                <span class="email-date">December 9, 2024</span>
+            </div>
+            <div class="email-content">
+                <p>"Your team's careless and unprofessional approach toward customers is extremely disappointing... I will not continue paying the extra amount every month for an issue caused by your mistake."</p>
+            </div>
+        </div>
+        
+        <div class="email-item">
+            <div class="email-header">
+                <span>From: Nagaraju AR (TATA CAPITAL)</span>
+                <span class="email-date">December 9, 2024</span>
+            </div>
+            <div class="email-content">
+                <p>"Need only bank statement from last one year... Need latest bank statement for process."</p>
+                <p style="margin-top: 10px; font-style: italic;">Same request for documents already submitted 4 months earlier.</p>
+            </div>
+        </div>
+        
+        <div class="email-item">
+            <div class="email-header">
+                <span>From: Bharath Bholey</span>
+                <span class="email-date">December 10, 2024</span>
+            </div>
+            <div class="email-content">
+                <p>"I require the following process and timelines to be confirmed in writing: Day 1 – Initiation... Day 45 – Final Execution..."</p>
+                <p style="margin-top: 10px; font-style: italic;">No response received to this structured request for accountability.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="warning-box">
+        <div class="warning-title">URGENT WARNING TO TATA CAPITAL CUSTOMERS</div>
+        <p>If you are a TATA CAPITAL customer, you may be at risk of similar neglect. This case demonstrates a pattern of:</p>
+        <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 15px;">
+            <li><strong>Systemic Failure:</strong> Simple requests can take 4+ months with no resolution</li>
+            <li><strong>Financial Penalization:</strong> Customers charged fees for the company's inefficiency</li>
+            <li><strong>Zero Accountability:</strong> No escalation matrix that actually works</li>
+            <li><strong>Communication Breakdown:</strong> Requests for clarification met with silence or circular responses</li>
+        </ul>
+        <p><strong>What you must do NOW:</strong> Document all communications, demand written timelines, and consider sharing your experience publicly if resolution isn't provided within reasonable timeframes.</p>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Days of Inaction</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Emails Ignored</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Months of Delays</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Clear Explanations</div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <h2 style="color: white;">This Cannot Continue. Share This Story.</h2>
+        <p style="color: white; margin-bottom: 20px; font-size: 1.1rem;">We must hold TATA CAPITAL accountable. Share this story to pressure them to fix their systemic issues and treat customers with the dignity promised by the TATA name.</p>
+        <button class="btn" id="shareBtn">
+            <i class="fas fa-share-alt"></i> Share This Story
+        </button>
+        <button class="btn btn-secondary" id="tweetBtn">
+            <i class="fab fa-twitter"></i> Tweet @TATACAPITAL
+        </button>
+        
+        <div class="social-share">
+            <a href="#" class="social-icon" id="facebookShare">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" id="twitterShare">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" id="linkedinShare">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon" id="whatsappShare">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>About Me: An Entrepreneur Inspired by Ratan Tata</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>I am BharathBholeY - Inspired by the motivational and powerful quotes of Ratan Tata, I've taken steps toward entrepreneurship and Aatma Nirbhar Bharat, ideating and developing 3 startups.</p>
+                
+                <p>IPNOTEC is my billion-dollar dream, and I'm inching toward it step by step on my own. As someone who deeply respects the TATA legacy, it pains me to see how far TATA CAPITAL has strayed from the values that made the TATA name great.</p>
+                
+                <p>This isn't just about one bank account change request. It's about upholding the values that built Indian industry. It's about ensuring that when we see the TATA name, we still see trust, integrity, and customer-centricity.</p>
+                
+                <div class="about-links">
+                    <a href="https://linktr.ee/BharathBholeY" target="_blank" class="link-btn">
+                        <i class="fas fa-link"></i> My Work & Startups
+                    </a>
+                    <a href="mailto:bharathbholey@gmail.com" class="link-btn">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Demands for TATA CAPITAL</h2>
+        
+        <div class="highlight-box">
+            <h3>Immediate Actions Required:</h3>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Immediate Resolution:</strong> Process the bank account change request within 7 working days with written confirmation.</li>
+                <li><strong>Financial Redressal:</strong> Refund all additional fees charged due to TATA CAPITAL's failure to process the request.</li>
+                <li><strong>Transparent Process:</strong> Provide a clear, written escalation matrix that actually works for customers.</li>
+                <li><strong>Systemic Review:</strong> Conduct an internal audit of customer service processes and fix systemic issues.</li>
+                <li><strong>Public Commitment:</strong> Issue a public statement reaffirming commitment to TATA values and customer dignity.</li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Disclaimer:</strong> This website is based on my personal experience with TATA CAPITAL. All email excerpts are genuine. This is intended for awareness and advocacy purposes to improve customer service standards.</p>
+        <p style="margin-top: 15px;">© 2024 | Customer Rights Advocacy | #TATACAPITALFail #TATATrustBroken</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">This website is not affiliated with or endorsed by TATA Group or TATA CAPITAL.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            timelineItems.forEach(item => {
+                item.style.opacity = '0.7';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+            
+            // Share functionality
+            const shareBtn = document.getElementById('shareBtn');
+            const tweetBtn = document.getElementById('tweetBtn');
+            const facebookShare = document.getElementById('facebookShare');
+            const twitterShare = document.getElementById('twitterShare');
+            const linkedinShare = document.getElementById('linkedinShare');
+            const whatsappShare = document.getElementById('whatsappShare');
+            
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+            const hashtags = 'TATACAPITALFail,TATATrustBroken,CustomerRights';
+            
+            const shareText = encodeURIComponent("Check out this story about TATA CAPITAL's systemic failure and broken trust with customers. #TATACAPITALFail #TATATrustBroken");
+            
+            // Native share
+            shareBtn.addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        text: 'Broken Trust: When TATA CAPITAL Prioritizes Unit Economics Over Customer Dignity',
+                        url: window.location.href,
+                    })
+                    .catch(console.error);
+                } else {
+                    // Fallback
+                    window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}&hashtags=${hashtags}`, '_blank');
+                }
+            });
+            
+            // Twitter share
+            tweetBtn.addEventListener('click', function() {
+                window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}&hashtags=${hashtags}`, '_blank');
+            });
+            
+            // Social media share buttons
+            facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            twitterShare.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}&hashtags=${hashtags}`;
+            linkedinShare.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}&summary=${shareText}`;
+            whatsappShare.href = `https://wa.me/?text=${shareText}%20${pageUrl}`;
+            
+            // Open all social links in new window
+            const socialLinks = document.querySelectorAll('.social-icon');
+            socialLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(this.href, '_blank');
+                });
+            });
+            
+            // Highlight email items on hover
+            const emailItems = document.querySelectorAll('.email-item');
+            emailItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
